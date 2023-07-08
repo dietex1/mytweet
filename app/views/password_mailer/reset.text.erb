@@ -1,0 +1,3 @@
+Good day <%= params[:user].email %> ,  <%= @greeting %>
+If this email is not for you, please ignore it.The link will expire in 15 minutes.
+<%= password_reset_edit_url(token: @token) %>

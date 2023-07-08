@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyTweet</title>
+    <link rel="shortcut icon" href="https://cdn.pixabay.com/photo/2013/07/12/17/46/twitter-152404_1280.png">
+    <link rel="apple-touch-icon image_src" href="http://sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+      body {
+          font-family: 'Montserrat', sans-serif;
+          background-color: #f5f5f5;
+      }
+
+      .container {
+          max-width: 800px;
+          margin-top: 50px;
+      }
+
+      .signn {
+          max-width: 500px;
+      }
+
+      .card {
+          border: none;
+          border-radius: 20px;
+          box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-body {
+          padding: 40px;
+      }
+
+      .card-title {
+          font-size: 30px;
+          font-weight: 700;
+          text-align: center;
+          margin-bottom: 30px;
+      }
+
+      .form-group label {
+          font-size: 16px;
+          font-weight: 700;
+          margin-bottom: 10px;
+      }
+
+      .form-control {
+          border: none;
+          border-radius: 10px;
+          padding: 15px;
+          font-size: 16px;
+          background-color: #f9f9f9;
+          box-shadow: none;
+      }
+
+      .form-control:focus {
+          box-shadow: none;
+      }
+
+      .btn-primary {
+          border-radius: 10px;
+          font-size: 18px;
+          font-weight: 700;
+          padding: 15px;
+          width: 100%;
+          background-color: #6c63ff;
+          border: none;
+      }
+
+      .btn-primary:hover {
+          background-color: #564ef8;
+      }
+
+
+      .alert {
+          border-radius: 10px;
+          font-size: 16px;
+          font-weight: 700;
+          padding: 15px;
+          margin-top: 10px;
+      }
+
+      .alert-info {
+          background-color: #bee5eb;
+          color: #7790a9;
+      }
+
+      .alert-warning {
+          background-color: #ffe8b4;
+          color: #ff8000;
+      }
+
+      .navbar {
+          background-color: #fff;
+          box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+          font-size: 24px;
+          font-weight: 700;
+          color: #6c63ff;
+      }
+
+      .navbar-toggler {
+          border: none;
+          background-color: transparent;
+      }
+
+      .navbar-toggler-icon {
+          background-color: #6c63ff;
+          width: 24px;
+          height: 2px;
+      }
+
+      .navbar-nav .nav-link {
+          font-size: 18px;
+          font-weight: 700;
+          color: #6c63ff;
+          margin-left: 15px;
+      }
+
+      .navbar-nav .nav-link.active {
+          color: lightslategray;
+      }
+      .custom-btn {
+          width: 100px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          transition: background-color 0.3s;
+          margin-right: 15px;
+          background-color:lightblue;
+          color: #5f6967;
+      }
+
+      .disabled_btn{
+          color: #5f6967;
+      }
+
+      .custom-btn.edit-btn:hover {
+          background-color: #59a2bb;
+          color: white;
+      }
+
+      .custom-btn.delete-btn:hover {
+          background-color: lightcoral;
+          color: white;
+      }
+  </style>
+
+  <body>
+  <%= render partial: "shared/navbar" %>
+  <div class="container pt-4">
+    <%= render partial: "shared/flash" %>
+    <%= yield %>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+  </body>
+</html>

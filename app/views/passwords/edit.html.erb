@@ -1,0 +1,29 @@
+<div class="container signn">
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title">Edit Password</h1>
+      <%= form_with model: Current.user, url: edit_password_path do |form| %>
+        <%# if Current.user.errors.any? %>
+<!--          <div class="alert alert-danger">-->
+<!--            <ul class="mb-0">-->
+              <%# Current.user.full_messages.each do |message| %>
+<!--                <li><%#= message %></li>-->
+              <%# end %>
+<!--            </ul>-->
+<!--          </div>-->
+        <%#end %>
+        <div class="form-group mb-3">
+          <%= form.label :password %>
+          <%= form.password_field :password, class: "form-control", placeholder: "Enter your password" %>
+        </div>
+        <div class="form-group mb-3">
+          <%= form.label :password_confirmation %>
+          <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Confirm your password" %>
+        </div>
+        <div class="form-group">
+          <%= form.submit "Update Password", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

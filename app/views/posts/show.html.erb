@@ -1,0 +1,43 @@
+<!-- posts/show.html.erb -->
+<div class="card">
+  <div class="card-body">
+    <img src="<%= @post.photo %>"  class="card-img-top">
+
+    <h5 class="card-title"><%= @post.title %></h5>
+    <p class="card-text"><%= @post.text %></p>
+    <p class="card-text"><strong>Posted by:</strong> <%= @post.user.email %></p>
+  </div>
+
+  <form class="row g-3">
+    <div class="col-10">
+      <%= form_with url: create_comment_post_path(@post) do |form| %>
+        <%= form.hidden_field :name, value: Current.user.email %>
+        <%= form.fields_for :comment, Comment.new do |comment_fields| %>
+          <%= comment_fields.hidden_field :post_id, value: @post.id %>
+          <%= comment_fields.text_field :comment,class: "form-control", placeholder: "Write a comment..." , style: "height: 20px"%>
+
+        <% end %>
+        </div>
+        <div class="col-2">
+          <div class="form-group">
+            <%= form.submit "Submit", class: "btn btn-sm custom-btn edit-btn rounded-pill" %>
+          </div>
+        </div>
+      <% end %>
+      </form>
+
+</div>
+<div class="mt-3">
+  <h5><strong>Comments</strong></h5>
+  <% @post.comments.each do |comment| %>
+    <div class="card mb-2">
+      <div class="card-body">
+        <p class="card-text"><strong>Name:</strong> <%= comment.name %></p>
+        <p class="card-text"><%= comment.comment %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+

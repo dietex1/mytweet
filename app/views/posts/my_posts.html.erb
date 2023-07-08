@@ -1,0 +1,20 @@
+<div class="d-flex align-items-center justify-content-center mb-5">
+  <h1 class="display-3">My Posts</h1>
+</div>
+
+<% @posts.each do |post| %>
+  <div class="card mb-4">
+    <div class="card-body">
+      <h2 class="card-title"><%= post.title %></h2>
+      <p class="card-text"><%= post.text %></p>
+      <% if Current.user == post.user %>
+        <div class="d-flex justify-content-end">
+          <%= link_to "Show Post", post_path(post), class: "btn btn-sm  custom-btn edit-btn rounded-pill" %>
+          <%= link_to "Edit", edit_post_path(post), class: "btn btn-sm custom-btn edit-btn rounded-pill" %>
+          <%= button_to "Delete", post_path(post), method: :delete, class: "btn btn-sm  custom-btn delete-btn rounded-pill" %>
+
+        </div>
+    <% end %>
+    </div>
+  </div>
+<% end %>

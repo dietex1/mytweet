@@ -1,0 +1,40 @@
+<% if flash[:notice] %>
+  <div class="alert alert-info" role="alert" id="notice-alert">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert alert-warning" role="alert" id="alert-alert">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(function() {
+                        var noticeAlert = document.getElementById('notice-alert');
+                        if (noticeAlert) {
+                                noticeAlert.classList.add('fade-out');
+                                noticeAlert.addEventListener('transitionend', function() {
+                                        noticeAlert.style.display = 'none';
+                                });
+                        }
+
+                        var alertAlert = document.getElementById('alert-alert');
+                        if (alertAlert) {
+                                alertAlert.classList.add('fade-out');
+                                alertAlert.addEventListener('transitionend', function() {
+                                        alertAlert.style.display = 'none';
+                                });
+                        }
+                }, 1800);
+        });
+</script>
+
+<style>
+        .fade-out {
+                opacity: 0;
+                transition: opacity 0.5s;
+        }
+</style>
